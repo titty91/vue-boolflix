@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main{
+  width: 80%;
+  min-width: 50%;
+}
+
+
+.groupSlide {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+}
+
+.slide {
+  width: auto;
+  height: 200px;
+  background-color: lightgrey;
+  width: auto;
+  height: auto;
+  margin: 10px 10px;
+}

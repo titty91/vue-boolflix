@@ -4,18 +4,29 @@
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title></title>
   </head>
   <body>
+<main>
 
-  <div id="app" class="">
-    <input v-model="query" type="text" name="" value="">
+  <div id="app">
+    <input v-model="query" type="text">
     <button @click="cercaClick" type="button" name="button">cerca</button>
-    <div v-for="film in listaFilm" class="">
-      <h1>{{film.title}}</h1>
+    
+    <div class="groupSlide">
+      <div v-for="film in listaFilm" id="app" class="slide">
+        <h1>{{film.title}}</h1>
+        <!-- <img :src="film.poster_path" alt=""> -->
+        <p>{{film.overview}}</p>
+        <p>{{film.release_date}}</p>
+      </div>
     </div>
   </div>
-  <script src="script.js">
-  </script>
+
+</main>
+
+
+  <script src="script.js"></script>
   </body>
 </html>

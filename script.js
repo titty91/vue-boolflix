@@ -5,9 +5,6 @@ function init(){
       query: '',
       listaFilm:[]
     },
-    mounted(){
-
-    },
     methods:{
       cercaClick(){
         axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -17,8 +14,8 @@ function init(){
                       'language': 'it-IT'
                     }
                   })
-               .then(function(respons){
-                 console.log(respons.data.results);
+               .then(respons=>{
+                 //console.log(respons.data.results);
                  this.listaFilm = respons.data.results
                  console.log(this.listaFilm);
                })
