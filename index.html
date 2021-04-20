@@ -2,39 +2,64 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- font titolo -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
     <!-- font testo -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Yantramanav&display=swap" rel="stylesheet">
+    <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title></title>
+    <title>Boolflix</title>
   </head>
   <body>
 <main>
   <div id="app">
     <div class="searchFilm">
-      <h1>TuttiFilm.it</h1>
-      <input v-model="query" type="text" placeholder="Cerca un film ..." >
-      <button @click="cercaClick" type="button" name="button">cerca</button>
+      <h1>Boolflix.it</h1>
+      <div class="">
+        <input v-model="query" type="text" placeholder="Cerca un film ..." @keydown.enter="cercaClick">
+        <button @click="cercaClick" type="button" name="button"><i class="fas fa-search"></i></button>
+      </div>
 
     </div>
 
-    <div class="groupSlide center">
-      <div v-for="film in listaFilm" id="app" class="slide clearfix">
+    <div class="groupSlide clearfix">
+
+      <div v-for="film in listaFilm" id="app" class="boxFilm">
+
         <div class="poster">
-          <img v-if="film.poster_path != null " :src="'https://image.tmdb.org/t/p/w300'+ film.poster_path" height="100%">
-          <img v-else src="img/copertina2.jpg" width="300px" height="100%" alt="">
-        </div>
-        <div class="descrizione">
-          <h1>{{film.title}}</h1>
-          <label for="">Descrizione</label>
-          <p>{{film.overview}}</p>
-          <label for="">Anno</label>
-          <p>{{film.release_date}}</p>
+          <img v-if="film.poster_path != null " :src="'https://image.tmdb.org/t/p/w300'+ film.poster_path">
+          <img v-else src="img/copertina3.jpg" width="300px" height="450px">
+
+          <div class="overlay">
+            <label for="">Titolo</label>
+            <h3>
+              {{film.title}}
+            </h3>
+            <label for="">Voto</label>
+            <p>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <label for="">Descrizione</label>
+            <p>
+              {{film.overview}}
+            </p>
+            <label for="">Anno</label>
+            <p>
+              {{film.release_date}}
+            </p>
+
+          </div>
         </div>
 
       </div>
