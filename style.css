@@ -30,7 +30,6 @@ main{
   box-shadow: 5px 10px 8px black;
   position: fixed;
   z-index: 100;
-
 }
 
 .searchFilm h1{
@@ -58,7 +57,6 @@ main{
   font-family: 'Yantramanav', sans-serif;
   font-size: 20px;
   border: none;
-
 }
 
 /* corpo del sito */
@@ -73,6 +71,14 @@ main{
   font-family: 'Yantramanav', sans-serif;
 }
 
+.groupSlide h1{
+  color: white;
+  width: 100%;
+  float: right;
+  border-bottom: 1px solid white;
+  margin-top:20px;
+}
+
 .clearfix{
   content:"";
   display: table;
@@ -82,7 +88,7 @@ main{
 .poster{
   background-color: red;
   float: left;
-  margin: 20px;
+  margin: 20px 10px;
   position: relative;
 }
 
@@ -90,7 +96,6 @@ main{
   width:300px;
   height:450px;
 }
-
 
 .overlay{
   position: absolute;
@@ -103,9 +108,16 @@ main{
   display: none;
   opacity: 0.9;
   padding-top: 5px;
-  transition: 0.5s
+  transition: 0.5s;
+  overflow: hidden;
 }
 
+.overlay .lingua{
+  width: auto;
+  height: 20px;
+}
+
+/* effetto hover sui box film */
 .boxFilm:hover .overlay{
   display: block;
   border: 3px solid #8C030E;

@@ -15,9 +15,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Boolflix</title>
+    <title>Boolflix Tiziana</title>
   </head>
   <body>
+
 <main>
   <div id="app">
     <div class="searchFilm">
@@ -30,9 +31,9 @@
     </div>
 
     <div class="groupSlide clearfix">
+      <h1>Film</h1>
 
       <div v-for="film in listaFilm" id="app" class="boxFilm">
-
         <div class="poster">
           <img v-if="film.poster_path != null " :src="'https://image.tmdb.org/t/p/w300'+ film.poster_path">
           <img v-else src="img/copertina3.jpg" width="300px" height="450px">
@@ -44,11 +45,13 @@
             </h3>
             <label for="">Voto</label>
             <p>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
+              <i v-for="i in calcoloVoto(film.vote_average)" class="fas fa-star"></i>
+              <i v-for="i in 5- calcoloVoto(film.vote_average)" class="far fa-star"></i>
+            </p>
+            <label for="">Lingua</label>
+            <p>
+              <img v-if="film.original_language == 'en' " src="img/flagEng.jpg" class="lingua" alt="">
+              <img v-else src="img/flagIta.png" class="lingua" alt="">
             </p>
             <label for="">Descrizione</label>
             <p>
@@ -58,16 +61,50 @@
             <p>
               {{film.release_date}}
             </p>
-
           </div>
-        </div>
 
+        </div>
+      </div>
+
+      <h1>Serie Tv</h1>
+
+      <div v-for="film in listaSerie" id="app" class="boxFilm">
+        <div class="poster">
+          <img v-if="film.poster_path != null " :src="'https://image.tmdb.org/t/p/w300'+ film.poster_path">
+          <img v-else src="img/copertina3.jpg" width="300px" height="450px">
+
+          <div class="overlay">
+            <label for="">Titolo</label>
+            <h3>
+              {{film.original_name}}
+            </h3>
+            <label for="">Voto</label>
+            <p>
+              <i v-for="i in calcoloVoto(film.vote_average)" class="fas fa-star"></i>
+              <i v-for="i in 5- calcoloVoto(film.vote_average)" class="far fa-star"></i>
+            </p>
+            <label for="">Lingua</label>
+            <p>
+              <img v-if="film.original_language == 'en' " src="img/flagEng.jpg" class="lingua" alt="">
+              <img v-else src="img/flagIta.png" class="lingua" alt="">
+            </p>
+            <label for="">Descrizione</label>
+            <p>
+              {{film.overview}}
+            </p>
+            <label for="">Anno</label>
+            <p>
+              {{film.release_date}}
+            </p>
+          </div>
+
+        </div>
       </div>
     </div>
+
   </div>
 
 </main>
-
 
   <script src="script.js"></script>
   </body>
